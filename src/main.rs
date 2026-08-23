@@ -32,7 +32,7 @@ fn main() -> Result<()> {
     let default_branch = repo_meta.get("default_branch").and_then(|v| v.as_str()).unwrap_or("main");
 
     // Fetch manifest.json (optional). If missing, fall back to fetching index.html directly.
-    let manifest_path = "web/manifest.json";
+    let manifest_path = "APP/manifest.json";
     let manifest_url = format!("https://raw.githubusercontent.com/{}/{}/{}/{}", owner, repo, default_branch, manifest_path);
 
     let mut index_html = String::new();
@@ -63,7 +63,7 @@ fn main() -> Result<()> {
                                     if expected != hexsum {
                                         eprintln!("SHA256 mismatch for {}: expected {} got {}", path, expected, hexsum);
                                         // refuse to run if core runtime mismatches
-                                        if path == "web/index.html" {
+                                        if path == "APP/index.html" {
                                             index_html = format!("<html><body><h1>Integrity check failed</h1><p>Runtime integrity check failed for {}.</p></body></html>", path);
                                             break;
                                         }
@@ -71,7 +71,7 @@ fn main() -> Result<()> {
                                     }
                                 }
 
-                                if path == "web/index.html" {
+                                if path == "APP/index.html" {
                                     index_html = String::from_utf8(blob.to_vec())?;
                                 }
                                 // For this prototype we do not cache runtime files to disk; they are verified and used in-memory.
@@ -85,7 +85,7 @@ fn main() -> Result<()> {
 
     if !manifest_present {
         // fallback: fetch index.html directly
-        let index_path = "web/index.html";
+        let index_path = "APP/index.html";
         let raw_url = format!("https://raw.githubusercontent.com/{}/{}/{}/{}", owner, repo, default_branch, index_path);
         index_html = client.get(&raw_url).send()?.text()?;
     }

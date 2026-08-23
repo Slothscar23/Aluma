@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aluma App (PWA)</title>
+  <link rel="manifest" href="/APP/manifest.json">
+  <link rel="stylesheet" href="/APP/style.css">
+</head>
+<body>
+  <h1>Aluma — App Folder Prototype</h1>
+  <p>This PWA stores user data locally (IndexedDB) and fetches runtime assets from the repo. To run as a native-feeling app, install as a PWA or use the Rust bootstrap which will load this page in an in-memory WebView.</p>
+
+  <textarea id="editor" cols="80" rows="20">{
+  "hello": "world"
+}</textarea>
+  <br/>
+  <button id="save-local">Save to browser storage (IndexedDB)</button>
+  <button id="save-remote">(Optional) Request repo save via bootstrap</button>
+  <div id="status"></div>
+
+  <script src="/APP/app.js"></script>
+</body>
+</html>
