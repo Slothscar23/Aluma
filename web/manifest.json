@@ -1,0 +1,10 @@
+{
+  "files": [
+    {
+      "path": "web/index.html",
+      "sha256": "REPLACE_WITH_ACTUAL_SHA256_OF_INDEX_HTML"
+    }
+  ],
+  "version": "1",
+  "notes": "Optional manifest to verify runtime integrity. Replace SHA256 values with the hex digest of each file."
+}

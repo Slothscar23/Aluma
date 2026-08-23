@@ -1,0 +1,3 @@
+body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; padding: 20px; }
+textarea { width: 100%; max-width: 900px; font-family: monospace; }
+#status { margin-top: 10px; color: #444; }
